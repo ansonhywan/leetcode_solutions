@@ -13,8 +13,8 @@
 var isBalanced = function (root) {
   if (root === null) return true;
 
-  let l = dfs(root.left);
-  let r = dfs(root.right);
+  const l = dfs(root.left);
+  const r = dfs(root.right);
 
   return l[0] && r[0] && Math.abs(l[1] - r[1]) <= 1 ? true : false;
 };
@@ -22,8 +22,8 @@ var isBalanced = function (root) {
 var dfs = function (root) {
   if (root === null) return [true, -1];
 
-  let l = dfs(root.left);
-  let r = dfs(root.right);
+  const l = dfs(root.left);
+  const r = dfs(root.right);
 
   balanced = l[0] && r[0] && Math.abs(l[1] - r[1]) <= 1;
   h = Math.max(l[1], r[1]) + 1;
