@@ -1,0 +1,22 @@
+class Solution:
+    def numDecodings(self, s: str) -> int:
+        # if number starts in a 1 or 2, check number after as well
+        # 3-9, not possible to have another digit after as alphabet only has 26 numbers, no need to scan
+
+        dp = {len(s): 1}
+
+        def dfs(i, res):
+            if i in dp:
+                return dp[i]
+            if s[i] == "0":
+                return 0
+
+            res += dfs(i + 1, res)
+            if i + 1 < len(s) and (
+                s[i] == "1" or s[i] == "2" and s[i + 1] in "0123456"
+            ):
+                res += dfs(i + 2, res)
+            dp[i] = res
+            return res
+
+        return dfs(0, 0)
