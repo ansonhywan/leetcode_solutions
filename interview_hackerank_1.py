@@ -1,3 +1,4 @@
+# Varicent
 # Given a list of integers nums, and an integer num. 
 # Find all instances of num in nums and move them to the center of the list keeping relative order of the other elements.
 
